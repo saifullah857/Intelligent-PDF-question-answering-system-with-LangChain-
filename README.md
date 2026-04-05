@@ -1,9 +1,7 @@
 <div align="center">
 
-<!-- ═══════════════════════════════════════════════════════════
-     HEADER — capsule-render (reliable GitHub SVG renderer)
-════════════════════════════════════════════════════════════ -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Intelligent%20PDF%20Q%26A%20System&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Powered%20by%20LangChain%20%7C%20RAG%20%7C%20ChromaDB%20%7C%20Sentence%20Transformers&descAlignY=58&descSize=16&descColor=dddddd" />
+# 🤖 Intelligent PDF Question-Answering System
+### Powered by LangChain · ChromaDB · Sentence Transformers · RAG
 
 <br/>
 
@@ -36,10 +34,8 @@
 
 <br/><br/>
 
-<blockquote>
-💡 <b>Upload any PDF. Ask anything. Get precise, context-aware answers.</b><br/>
-A full RAG pipeline — chunk, embed, store, retrieve — built with LangChain, ChromaDB & Sentence Transformers.
-</blockquote>
+> 💡 **Upload any PDF. Ask anything. Get precise, context-aware answers.**
+> A full RAG pipeline — chunk, embed, store, retrieve — built with LangChain, ChromaDB & Sentence Transformers.
 
 <br/>
 
@@ -78,7 +74,7 @@ A full RAG pipeline — chunk, embed, store, retrieve — built with LangChain, 
 |:---|:---|
 | 📄 **Multi-PDF Ingestion** | Batch-load entire folders of PDFs automatically in one pipeline call |
 | ✂️ **Intelligent Chunking** | Recursive character splitting that preserves semantic boundaries with overlap |
-| 🧠 **Semantic Embeddings** | `all-MiniLM-L6-v2` dense vectors for meaning-based retrieval, not keyword matching |
+| 🧠 **Semantic Embeddings** | `all-MiniLM-L6-v2` dense vectors for meaning-based retrieval, not just keywords |
 | 💾 **Persistent Vector Store** | ChromaDB stores embeddings on disk — no re-processing on restart |
 | 🔍 **Cosine Similarity Search** | Score-filtered, ranked top-k retrieval for the most relevant context |
 | 🤖 **Natural Language Q&A** | Ask plain-English questions — get context-grounded, source-attributed answers |
@@ -174,7 +170,7 @@ A full RAG pipeline — chunk, embed, store, retrieve — built with LangChain, 
 
 ```bash
 git clone https://github.com/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-.git
-cd RAG_Project
+cd Intelligent-PDF-question-answering-system-with-LangChain-
 ```
 
 ### 2️⃣ &nbsp;Create & Activate Virtual Environment *(recommended)*
@@ -339,31 +335,31 @@ SCORE_THRESHOLD = 0.0    # Min cosine similarity — raise to 0.3–0.5 for prec
 <details>
 <summary><b>📄 Step 1 — Document Loading</b></summary>
 <br/>
-<code>PyPDFLoader</code> reads every <code>.pdf</code> in <code>data/pdfs/</code>. Each page becomes a LangChain <code>Document</code> with <code>page_content</code> (raw text) and <code>metadata</code> (source path, page number). Multiple PDFs are merged into a single document list automatically.
+<code>PyPDFLoader</code> reads every <code>.pdf</code> in <code>data/pdfs/</code>. Each page becomes a LangChain <code>Document</code> with <code>page_content</code> and <code>metadata</code> (source path, page number). Multiple PDFs are merged into a single document list automatically.
 </details>
 
 <details>
 <summary><b>✂️ Step 2 — Intelligent Chunking</b></summary>
 <br/>
-<code>RecursiveCharacterTextSplitter</code> splits text using a separator hierarchy: <code>\n\n</code> → <code>\n</code> → <code>" "</code>. This preserves paragraph and sentence structure far better than naive character splitting. The 50-character overlap ensures context is never lost at a boundary.
+<code>RecursiveCharacterTextSplitter</code> splits using a separator hierarchy: <code>\n\n</code> → <code>\n</code> → <code>" "</code>. This preserves paragraph and sentence structure far better than naive character splitting. The 50-character overlap ensures context is never cut off at boundaries.
 </details>
 
 <details>
 <summary><b>🧠 Step 3 — Semantic Embedding</b></summary>
 <br/>
-Each chunk is encoded into a 384-dimensional dense vector by <code>all-MiniLM-L6-v2</code>. Trained for semantic textual similarity, this model places related chunks geometrically close in vector space — regardless of exact word matches — enabling true meaning-based retrieval.
+Each chunk is encoded into a 384-dimensional dense vector by <code>all-MiniLM-L6-v2</code>. Trained for semantic textual similarity, this model places related chunks geometrically close in vector space — regardless of exact word matches.
 </details>
 
 <details>
 <summary><b>💾 Step 4 — Persistent Vector Storage</b></summary>
 <br/>
-ChromaDB persists each vector with its raw text and metadata (source file, page, content length) to a local database. UUIDs prevent duplicate entries. The store survives session restarts — no re-embedding required on subsequent runs.
+ChromaDB persists each vector with its raw text and metadata to a local database. UUIDs prevent duplicate entries. The store survives session restarts — no re-embedding required on subsequent runs.
 </details>
 
 <details>
 <summary><b>🔍 Step 5 — Retrieval & Ranking</b></summary>
 <br/>
-The user's question is embedded with the same model. ChromaDB performs approximate nearest-neighbor search to find top-k candidates. Cosine similarity re-scores results, which are then filtered by threshold and returned ranked — most relevant chunk first.
+The user's question is embedded with the same model. ChromaDB performs approximate nearest-neighbor search to find top-k candidates. Cosine similarity re-scores results, which are filtered by threshold and returned sorted by relevance rank.
 </details>
 
 ---
@@ -449,9 +445,8 @@ See [`LICENSE`](./LICENSE) for full details.
 
 ---
 
-<!-- Footer Wave -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" />
-
 <div align="center">
-<sub>Built with ❤️ by <a href="https://github.com/saifullah857">saifullah857</a> · LangChain · ChromaDB · Sentence Transformers · Python</sub>
+
+<sub>Built with ❤️ by <a href="https://github.com/saifullah857">saifullah857</a> &nbsp;·&nbsp; LangChain · ChromaDB · Sentence Transformers · Python</sub>
+
 </div>
