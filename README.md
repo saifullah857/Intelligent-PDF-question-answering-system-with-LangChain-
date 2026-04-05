@@ -1,29 +1,32 @@
 <div align="center">
 
-<!-- Animated Header -->
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=3000&pause=1000&color=6C63FF&center=true&vCenter=true&width=750&lines=🤖+Intelligent+PDF+Q%26A+System;Powered+by+LangChain+%2B+RAG;Ask+Anything+From+Your+Documents!" alt="Typing SVG" />
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER — capsule-render (reliable GitHub SVG renderer)
+════════════════════════════════════════════════════════════ -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Intelligent%20PDF%20Q%26A%20System&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Powered%20by%20LangChain%20%7C%20RAG%20%7C%20ChromaDB%20%7C%20Sentence%20Transformers&descAlignY=58&descSize=16&descColor=dddddd" />
 
-<br/><br/>
+<br/>
 
-<!-- Author Badge -->
+<!-- Author & Repo -->
 <a href="https://github.com/saifullah857">
   <img src="https://img.shields.io/badge/Author-saifullah857-6C63FF?style=for-the-badge&logo=github&logoColor=white" />
 </a>
+&nbsp;
 <a href="https://github.com/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-">
   <img src="https://img.shields.io/badge/Repo-Intelligent--PDF--QA-FF6B35?style=for-the-badge&logo=github&logoColor=white" />
 </a>
 
 <br/><br/>
 
-<!-- Tech Stack Badges -->
+<!-- Tech Stack -->
 ![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![LangChain](https://img.shields.io/badge/LangChain-0.3+-1C3C3C?style=for-the-badge&logo=chainlink&logoColor=white)
-![ChromaDB](https://img.shields.io/badge/ChromaDB-VectorStore-FF6B35?style=for-the-badge&logo=databricks&logoColor=white)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Store-FF6B35?style=for-the-badge&logo=databricks&logoColor=white)
 ![HuggingFace](https://img.shields.io/badge/HuggingFace-Embeddings-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
 
 <br/>
 
-<!-- Status Badges -->
+<!-- Status -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 ![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-blueviolet?style=flat-square)
@@ -34,14 +37,17 @@
 <br/><br/>
 
 <blockquote>
-💡 <strong>Intelligent PDF Question-Answering System</strong> — Upload any PDF, ask questions in natural language, and get precise, context-aware answers powered by a full <strong>RAG (Retrieval-Augmented Generation)</strong> pipeline built with LangChain, ChromaDB & Sentence Transformers.
+💡 <b>Upload any PDF. Ask anything. Get precise, context-aware answers.</b><br/>
+A full RAG pipeline — chunk, embed, store, retrieve — built with LangChain, ChromaDB & Sentence Transformers.
 </blockquote>
 
 <br/>
 
-[🏗️ Architecture](#️-pipeline-architecture) &nbsp;·&nbsp; [🚀 Quick Start](#-quick-start) &nbsp;·&nbsp; [💡 Usage](#-usage) &nbsp;·&nbsp; [🔧 Configuration](#-configuration) &nbsp;·&nbsp; [🤝 Contributing](#-contributing)
-
-<br/>
+[🏗️ Architecture](#️-pipeline-architecture) &nbsp;·&nbsp;
+[🚀 Quick Start](#-quick-start) &nbsp;·&nbsp;
+[💡 Usage](#-usage) &nbsp;·&nbsp;
+[🔧 Configuration](#-configuration) &nbsp;·&nbsp;
+[🤝 Contributing](#-contributing)
 
 </div>
 
@@ -71,13 +77,13 @@
 | 🚀 Feature | 📝 Description |
 |:---|:---|
 | 📄 **Multi-PDF Ingestion** | Batch-load entire folders of PDFs automatically in one pipeline call |
-| ✂️ **Intelligent Chunking** | Recursive character splitting preserving semantic boundaries with overlap |
-| 🧠 **Semantic Embeddings** | `all-MiniLM-L6-v2` dense vectors for accurate meaning-based retrieval |
+| ✂️ **Intelligent Chunking** | Recursive character splitting that preserves semantic boundaries with overlap |
+| 🧠 **Semantic Embeddings** | `all-MiniLM-L6-v2` dense vectors for meaning-based retrieval, not keyword matching |
 | 💾 **Persistent Vector Store** | ChromaDB stores embeddings on disk — no re-processing on restart |
-| 🔍 **Cosine Similarity Retrieval** | Score-filtered, ranked top-k retrieval for relevant context windows |
-| 🤖 **Natural Language Q&A** | Ask plain English questions — get context-grounded answers |
-| 🔌 **Fully Modular** | Swap any component: loader, embedder, vector store, or LLM |
-| 📊 **Source Attribution** | Every answer traces back to the source PDF page and document |
+| 🔍 **Cosine Similarity Search** | Score-filtered, ranked top-k retrieval for the most relevant context |
+| 🤖 **Natural Language Q&A** | Ask plain-English questions — get context-grounded, source-attributed answers |
+| 🔌 **Fully Modular Design** | Swap any component: loader, embedder, vector store, or LLM |
+| 📊 **Source Attribution** | Every result traces back to the originating PDF page and document |
 
 </div>
 
@@ -93,16 +99,16 @@
 ║   📂 PDF Folder                                                       ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   📄 PyPDFLoader          →    Load pages as Document objects         ║
+║   📄 PyPDFLoader          →   Load pages as Document objects          ║
 ║       │                                                               ║
 ║       ▼                                                               ║
 ║   ✂️  RecursiveTextSplitter →  Chunk into 500-char segments           ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   🧠 SentenceTransformer   →   Encode chunks into 384-dim vectors     ║
+║   🧠 SentenceTransformer   →  Encode chunks into 384-dim vectors      ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   💾 ChromaDB (Persistent) →   Store embeddings + metadata on disk   ║
+║   💾 ChromaDB (Persistent) →  Store embeddings + metadata on disk    ║
 ║                                                                       ║
 ╠═══════════════════════════════════════════════════════════════════════╣
 ║                  🔍  RETRIEVAL & Q&A PIPELINE                        ║
@@ -111,16 +117,16 @@
 ║   ❓ User Question                                                    ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   🧠 Embed Query           →   Same model, same vector space          ║
+║   🧠 Embed Query           →  Same model, same vector space           ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   📐 Cosine Similarity     →   Top-K nearest chunks from ChromaDB     ║
+║   📐 Cosine Similarity     →  Top-K nearest chunks from ChromaDB      ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   📋 Ranked Context Chunks →   Filtered by score threshold            ║
+║   📋 Ranked Context Chunks →  Filtered by similarity score threshold  ║
 ║       │                                                               ║
 ║       ▼                                                               ║
-║   💬 Grounded Answer       →   Answer with source attribution         ║
+║   💬 Grounded Answer       →  Answer with source & page attribution   ║
 ║                                                                       ║
 ╚═══════════════════════════════════════════════════════════════════════╝
 ```
@@ -140,7 +146,7 @@
 ├── 📓 main.ipynb                  ← 🚀 End-to-end pipeline notebook
 ├── 📄 requirements.txt            ← 📦 All Python dependencies
 ├── 📄 .gitignore                  ← 🙈 Ignore venv, __pycache__, etc.
-└── 📘 README.md                   ← 📖 You are here
+└── 📘 README.md
 ```
 
 ---
@@ -168,7 +174,7 @@
 
 ```bash
 git clone https://github.com/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-.git
-cd Intelligent-PDF-question-answering-system-with-LangChain-
+cd RAG_Project
 ```
 
 ### 2️⃣ &nbsp;Create & Activate Virtual Environment *(recommended)*
@@ -176,10 +182,10 @@ cd Intelligent-PDF-question-answering-system-with-LangChain-
 ```bash
 python -m venv venv
 
-# ── Windows ──────────────────
+# ── Windows ───────────────────────────
 venv\Scripts\activate
 
-# ── macOS / Linux ────────────
+# ── macOS / Linux ─────────────────────
 source venv/bin/activate
 ```
 
@@ -208,7 +214,7 @@ pip install langchain langchain-core langchain-community \
 📂 data/pdfs/
   ├── research_paper.pdf
   ├── company_handbook.pdf
-  └── any_document.pdf        ← Drop any PDFs here
+  └── any_document.pdf       ← Drop any PDFs here
 ```
 
 ### 5️⃣ &nbsp;Launch the Notebook
@@ -216,7 +222,7 @@ pip install langchain langchain-core langchain-community \
 ```bash
 # Option A — VS Code (recommended)
 code .
-# Then open main.ipynb and click "Run All"
+# Open main.ipynb → click "Run All"
 
 # Option B — Jupyter
 jupyter notebook main.ipynb
@@ -229,16 +235,16 @@ jupyter notebook main.ipynb
 ### 🔧 Initialize All Components
 
 ```python
-# ── Embeddings ────────────────────────────────────────────────────────
+# ── Embeddings ────────────────────────────────────────────────
 embedding_manager = EmbeddingManager(model_name="all-MiniLM-L6-v2")
 
-# ── Vector Store ──────────────────────────────────────────────────────
+# ── Vector Store ──────────────────────────────────────────────
 vector_store = VectorStoreManager(
     persist_directory="data/vector_store",
     collection_name="pdf_documents"
 )
 
-# ── Retriever ─────────────────────────────────────────────────────────
+# ── Retriever ─────────────────────────────────────────────────
 rag_retriever = RAGRetriever(embedding_manager, vector_store)
 ```
 
@@ -256,11 +262,11 @@ print(f"✅ Created {len(chunks)} chunks")
 # Step 3 — Embed
 texts = [doc.page_content for doc in chunks]
 embeddings = embedding_manager.generate_embeddings(texts)
-print(f"✅ Generated {embeddings.shape} embeddings")
+print(f"✅ Generated embeddings: {embeddings.shape}")
 
 # Step 4 — Store
 vector_store.add_documents(chunks, embeddings)
-print(f"✅ Stored in ChromaDB")
+print(f"✅ Stored in ChromaDB — ready to query!")
 ```
 
 ### ❓ Ask Questions About Your PDFs
@@ -268,13 +274,9 @@ print(f"✅ Stored in ChromaDB")
 ```python
 query = "What is the encoder-decoder architecture?"
 
-results = rag_retriever.retrieve(
-    query=query,
-    top_k=5,
-    score_threshold=0.3
-)
+results = rag_retriever.retrieve(query=query, top_k=5, score_threshold=0.3)
 
-print(f"\n🔍 Query: {query}")
+print(f"\n🔍 Query : {query}")
 print("=" * 65)
 
 for doc in results:
@@ -285,18 +287,19 @@ for doc in results:
     print("─" * 65)
 ```
 
-**Example Output:**
+**Sample Output:**
+
 ```
-🔍 Query: What is the encoder-decoder architecture?
+🔍 Query : What is the encoder-decoder architecture?
 ═════════════════════════════════════════════════════════════════
 
   📌 Rank #1  |  Similarity: 0.8742
-  📄 Source : data/pdfs/attention_paper.pdf
-  📃 Page   : 3
+  📄 Source   : data/pdfs/attention_paper.pdf
+  📃 Page     : 3
 
   The encoder maps an input sequence to a sequence of continuous
   representations z. Given z, the decoder generates an output
-  sequence one element at a time...
+  sequence of symbols one element at a time...
 ─────────────────────────────────────────────────────────────────
 ```
 
@@ -305,29 +308,29 @@ for doc in results:
 ## 🔧 Configuration
 
 ```python
-# ╔══════════════════════════════════════════════════════╗
-# ║              PIPELINE CONFIGURATION                 ║
-# ╠══════════════════════════════════════════════════════╣
+# ╔══════════════════════════════════════════════════════════╗
+# ║              ⚙️  PIPELINE CONFIGURATION                 ║
+# ╠══════════════════════════════════════════════════════════╣
 
-# ── Document Chunking ─────────────────────────────────
+# ── Document Chunking ─────────────────────────────────────
 CHUNK_SIZE      = 500    # Max characters per chunk
-CHUNK_OVERLAP   = 50     # Overlap to preserve context across boundaries
+CHUNK_OVERLAP   = 50     # Overlap to preserve cross-boundary context
 
-# ── Embedding Model ───────────────────────────────────
-EMBEDDING_MODEL = "all-MiniLM-L6-v2"   # 384-dim | Fast | Accurate
+# ── Embedding Model ───────────────────────────────────────
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"   # 384-dim | CPU-friendly | Fast
 
-# ── ChromaDB Vector Store ─────────────────────────────
+# ── ChromaDB Vector Store ─────────────────────────────────
 PERSIST_DIR     = "data/vector_store"
 COLLECTION_NAME = "pdf_documents"
 
-# ── Retrieval Parameters ──────────────────────────────
-TOP_K           = 5      # Number of chunks to retrieve
-SCORE_THRESHOLD = 0.0    # Minimum cosine similarity (raise to 0.3–0.5 for precision)
+# ── Retrieval Parameters ──────────────────────────────────
+TOP_K           = 5      # Number of chunks to retrieve per query
+SCORE_THRESHOLD = 0.0    # Min cosine similarity — raise to 0.3–0.5 for precision
 
-# ╚══════════════════════════════════════════════════════╝
+# ╚══════════════════════════════════════════════════════════╝
 ```
 
-> 💡 **Pro Tip:** Start with `score_threshold=0.0` to see all results, then raise it gradually to filter noise. A value of `0.4` is usually a good balance for technical documents.
+> 💡 **Pro Tip:** Start with `score_threshold=0.0` to inspect all results, then raise it to `0.4` for tighter, higher-quality answers on technical documents.
 
 ---
 
@@ -336,41 +339,31 @@ SCORE_THRESHOLD = 0.0    # Minimum cosine similarity (raise to 0.3–0.5 for pre
 <details>
 <summary><b>📄 Step 1 — Document Loading</b></summary>
 <br/>
-
-`PyPDFLoader` from `langchain-community` reads every `.pdf` inside `data/pdfs/`. Each page becomes a LangChain `Document` object containing `page_content` (raw text) and `metadata` (source path, page number). Multiple PDFs are batch-processed and merged into a single document list.
-
+<code>PyPDFLoader</code> reads every <code>.pdf</code> in <code>data/pdfs/</code>. Each page becomes a LangChain <code>Document</code> with <code>page_content</code> (raw text) and <code>metadata</code> (source path, page number). Multiple PDFs are merged into a single document list automatically.
 </details>
 
 <details>
 <summary><b>✂️ Step 2 — Intelligent Chunking</b></summary>
 <br/>
-
-`RecursiveCharacterTextSplitter` divides documents using a hierarchy of separators: `\n\n` → `\n` → ` `. This preserves paragraph and sentence structure better than naive character splitting. The 50-character overlap ensures context isn't lost at chunk boundaries.
-
+<code>RecursiveCharacterTextSplitter</code> splits text using a separator hierarchy: <code>\n\n</code> → <code>\n</code> → <code>" "</code>. This preserves paragraph and sentence structure far better than naive character splitting. The 50-character overlap ensures context is never lost at a boundary.
 </details>
 
 <details>
 <summary><b>🧠 Step 3 — Semantic Embedding</b></summary>
 <br/>
-
-Each chunk is encoded into a 384-dimensional dense vector using the `all-MiniLM-L6-v2` model from HuggingFace. This model is trained for semantic textual similarity — meaning semantically related chunks end up geometrically close in the vector space, regardless of exact keyword matches.
-
+Each chunk is encoded into a 384-dimensional dense vector by <code>all-MiniLM-L6-v2</code>. Trained for semantic textual similarity, this model places related chunks geometrically close in vector space — regardless of exact word matches — enabling true meaning-based retrieval.
 </details>
 
 <details>
 <summary><b>💾 Step 4 — Persistent Vector Storage</b></summary>
 <br/>
-
-ChromaDB stores each vector alongside the raw document text and metadata (source file, page, content length) in a local persistent database. A UUID is generated per document, preventing duplicates. The store survives session restarts — no need to re-embed on every run.
-
+ChromaDB persists each vector with its raw text and metadata (source file, page, content length) to a local database. UUIDs prevent duplicate entries. The store survives session restarts — no re-embedding required on subsequent runs.
 </details>
 
 <details>
 <summary><b>🔍 Step 5 — Retrieval & Ranking</b></summary>
 <br/>
-
-At query time, the user's question is embedded with the same `all-MiniLM-L6-v2` model. ChromaDB uses approximate nearest-neighbor search to find top-k candidates. Cosine similarity is then computed for final scoring, results are filtered by threshold, and returned sorted by rank — giving the most semantically relevant chunks first.
-
+The user's question is embedded with the same model. ChromaDB performs approximate nearest-neighbor search to find top-k candidates. Cosine similarity re-scores results, which are then filtered by threshold and returned ranked — most relevant chunk first.
 </details>
 
 ---
@@ -380,25 +373,25 @@ At query time, the user's question is embedded with the same `all-MiniLM-L6-v2` 
 <details>
 <summary><b>❓ Do I need a GPU to run this?</b></summary>
 <br/>
-No — the `all-MiniLM-L6-v2` model runs efficiently on CPU. For large-scale ingestion (thousands of pages), a GPU will speed up embedding generation significantly.
+No — <code>all-MiniLM-L6-v2</code> runs efficiently on CPU. A GPU will significantly speed up embedding for large-scale ingestion (thousands of pages).
 </details>
 
 <details>
-<summary><b>❓ Can I use a different embedding model?</b></summary>
+<summary><b>❓ Can I swap the embedding model?</b></summary>
 <br/>
-Yes! Pass any HuggingFace sentence-transformers model name to <code>EmbeddingManager(model_name="...")</code>. Popular alternatives include <code>all-mpnet-base-v2</code> (higher accuracy, slower) or <code>multi-qa-MiniLM-L6-cos-v1</code> (optimized for Q&A).
+Yes. Pass any HuggingFace sentence-transformers model to <code>EmbeddingManager(model_name="...")</code>. Alternatives: <code>all-mpnet-base-v2</code> (higher accuracy, slower) or <code>multi-qa-MiniLM-L6-cos-v1</code> (optimized for Q&A).
 </details>
 
 <details>
 <summary><b>❓ Will my vector store persist between sessions?</b></summary>
 <br/>
-Yes — ChromaDB's <code>PersistentClient</code> saves everything to <code>data/vector_store/</code>. Just re-initialize <code>VectorStoreManager</code> and your existing embeddings are ready to query immediately.
+Yes — ChromaDB's <code>PersistentClient</code> saves everything to <code>data/vector_store/</code>. Just re-initialize <code>VectorStoreManager</code> and your embeddings are immediately ready to query.
 </details>
 
 <details>
 <summary><b>❓ How do I add more PDFs after initial ingestion?</b></summary>
 <br/>
-Drop new PDFs into <code>data/pdfs/</code> and re-run the ingestion cells. ChromaDB assigns new UUIDs, so existing documents won't be duplicated — only new ones are added.
+Drop new PDFs into <code>data/pdfs/</code> and re-run the ingestion cells. ChromaDB assigns new UUIDs — existing documents are not duplicated, only new ones are added.
 </details>
 
 ---
@@ -408,7 +401,7 @@ Drop new PDFs into <code>data/pdfs/</code> and re-run the ingestion cells. Chrom
 Contributions, issues and feature requests are welcome!
 
 ```bash
-# 1. Fork the project
+# 1. Fork the project on GitHub
 # 2. Create your feature branch
 git checkout -b feature/AmazingFeature
 
@@ -430,7 +423,7 @@ git push origin feature/AmazingFeature
 <div align="center">
 
 <a href="https://github.com/saifullah857">
-  <img src="https://github.com/saifullah857.png" width="100px" style="border-radius:50%" alt="saifullah857"/>
+  <img src="https://github.com/saifullah857.png" width="100" style="border-radius:50%;" alt="saifullah857" />
 </a>
 
 <br/><br/>
@@ -441,9 +434,9 @@ git push origin feature/AmazingFeature
 
 <br/>
 
-If you found this project useful, please consider giving it a ⭐
+*If you found this helpful, please consider giving it a ⭐ — it really helps!*
 
-[![Star this repo](https://img.shields.io/github/stars/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-?style=social)](https://github.com/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-)
+[![Star](https://img.shields.io/github/stars/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-?style=social)](https://github.com/saifullah857/Intelligent-PDF-question-answering-system-with-LangChain-)
 
 </div>
 
@@ -451,29 +444,14 @@ If you found this project useful, please consider giving it a ⭐
 
 ## 📄 License
 
-```
-MIT License
-
-Copyright (c) 2024 saifullah857
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software.
-```
-
+Distributed under the **MIT License**.
 See [`LICENSE`](./LICENSE) for full details.
 
 ---
 
+<!-- Footer Wave -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer" />
+
 <div align="center">
-
-```
-Built with ❤️ by saifullah857
-LangChain · ChromaDB · Sentence Transformers · Python
-```
-
-[![Back to Top](https://img.shields.io/badge/Back%20to%20Top-⬆️-6C63FF?style=flat-square)](#)
-
+<sub>Built with ❤️ by <a href="https://github.com/saifullah857">saifullah857</a> · LangChain · ChromaDB · Sentence Transformers · Python</sub>
 </div>
