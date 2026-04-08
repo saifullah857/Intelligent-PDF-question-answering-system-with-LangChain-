@@ -268,16 +268,7 @@ GROQ_API_KEY=your_groq_api_key_here
 DEEPSEEK_API_KEY=your_deepseek_api_key_here
 ```
 
-> ⚠️ **Never commit your `.env` file.** Add it to `.gitignore` immediately.
 
-```gitignore
-# .gitignore
-.env
-data/vector_store/
-__pycache__/
-*.pyc
-venv/
-```
 
 Get your API keys here:
 
